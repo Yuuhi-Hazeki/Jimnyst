@@ -1,21 +1,60 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
 
+import DAO.CustomDataDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
 @WebServlet("/main")
+@MultipartConfig
 public class main extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/index.jsp");
-	dispatcher.forward(request, response);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/index.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String form_title = request.getParameter("title");
+		String form_sus = request.getParameter("Custom_Sus");
+		String form_body = request.getParameter("Custom_Body");
+		String form_engine = request.getParameter("Custom_Engine");
+		Part filePart = request.getPart("custom_img");
+		
+		if (filePart != null) {
+            String fileName = filePart.getSubmittedFileName();
+            String path = getServletContext().getRealPath("/WEB-INF/uploadImg");//保存場所を指定
+            String FilePath = path + File.separator + fileName;
+            File file = new File(FilePath);
+
+            if (file.exists()) {
+                file.delete(); 
+            }
+
+            filePart.write(file.getPath());//画像を保存
+    		
+            System.out.println("imgUploadSuccess!");
+           
+            CustomDataDAO.create(form_title, form_sus, form_body, form_engine, FilePath); //CustomDataDAO.createメソッドへ
+
+        } else {
+            System.out.println("imgUploadError");
+        	}
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/keepResult.jsp");
+		dispatcher.forward(request, response);
 	}
 }

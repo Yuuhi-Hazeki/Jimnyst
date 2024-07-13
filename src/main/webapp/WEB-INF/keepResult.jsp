@@ -8,6 +8,6 @@
 </head>
 <body>
 <h1>保存完了</h1>
-<a href="Main">TOPへ</a>
+<a href="main">TOPへ</a>
 </body>
 </html>

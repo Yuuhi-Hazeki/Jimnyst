@@ -8,8 +8,10 @@
 </head>
 <body>
 <h1>Jimnyst</h1>
-ジムニーカスタムを保存できます。<br>
+ジムニーカスタムを登録、管理、変更できます。<br>
 <br>
-<button type="button" onclick="location.href='Newcustom.jsp'" >新規作成</button>
+<p><a href="NewCustomController">新規作成</a><p>
+<br>
+<p><a href="CustomListController">カスタム一覧</a><p>
 </body>
 </html>
