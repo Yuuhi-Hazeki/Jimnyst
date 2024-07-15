@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -68,23 +69,26 @@ public class CustomDataDAO extends HttpServlet {
 		} //データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//SERECT文を準備
-			String sql = "SELECT  TITLE, IMGPASS, "
-					+ "CUSTOMSUS, CUSTOMBODY, CUSTOMEGINE";
+			String sql = "SELECT TITLE, IMGPASS, "
+					+ "CUSTOMSUS, CUSTOMBODY, CUSTOMENGINE, FROM CUSTOMDATA";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//SELECT文を実行し、結果を取得
 			ResultSet rs = pStmt.executeQuery();//ResultSetインスタンスにSELECT文の結果を格納
 
 			while (rs.next()) {//結果表の取り出し対象レコードを1つ進める
 				CustomData customdata = new CustomData();
-				customdata.setTitle(rs.getString("title"));
-				customdata.setImgPass(rs.getString("ImgPass"));
-				customdata.setCustomSus(rs.getString("CustomSus"));
-				customdata.setCustomBody(rs.getString("CustomBody"));
-				customdata.setCustomEngine(rs.getString("CustomEngine"));
+				customdata.setTitle(rs.getString("TITLE"));
+				customdata.setImgPass(rs.getString("IMGPASS"));
+				customdata.setCustomSus(rs.getString("CUSTOMSUS"));
+				customdata.setCustomBody(rs.getString("CUSTOMBODY"));
+				customdata.setCustomEngine(rs.getString("CUSTOMENGINE"));
 				ctdList.add(customdata);
 			}
-			request.setAttribute("ctdList", ctdList);
-
+			request.setAttribute("dataList", ctdList);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/customList.jsp");
+			dispatcher.forward(request, response);
+		
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return;

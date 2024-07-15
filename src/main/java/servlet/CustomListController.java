@@ -3,7 +3,6 @@ package servlet;
 import java.io.IOException;
 
 import DAO.CustomDataDAO;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,8 +16,6 @@ public class CustomListController extends HttpServlet {
 		
 		CustomDataDAO.findAll(request, response);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("customList.jsp");
-		dispatcher.forward(request, response);
 	}
 
 }

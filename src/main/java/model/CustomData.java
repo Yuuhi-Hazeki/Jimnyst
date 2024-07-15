@@ -2,49 +2,50 @@ package model;
 
 public class CustomData {
 
-	private String title;
-	private String ImgPass;
-	private String CustomSus;
-	private String CustomBody;
-	private String CustomEngine;
+	  private String imgPass;
+	    private String title;
+	    private String customSus;
+	    private String customBody;
+	    private String customEngine;
 
-	public String getTitle() {
-		return title;
-	}
+	    // ゲッターとセッター
+	    public String getImgPass() {
+	        return imgPass;
+	    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+	    public void setImgPass(String ImgPass) {
+	        this.imgPass = ImgPass;
+	    }
 
-	public String getImgPass() {
-		return ImgPass;
-	}
+	    public String getTitle() {
+	        return title;
+	    }
 
-	public void setImgPass(String imgPass) {
-		ImgPass = imgPass;
-	}
+	    public void setTitle(String title) {
+	        this.title = title;
+	    }
 
-	public String getCustomSus() {
-		return CustomSus;
-	}
+	    public String getCustomSus() {
+	        return customSus;
+	    }
 
-	public void setCustomSus(String customSus) {
-		CustomSus = customSus;
-	}
+	    public void setCustomSus(String CustomSus) {
+	        this.customSus = CustomSus;
+	    }
 
-	public String getCustomBody() {
-		return CustomBody;
-	}
+	    public String getCustomBody() {
+	        return customBody;
+	    }
 
-	public void setCustomBody(String customBody) {
-		CustomBody = customBody;
-	}
+	    public void setCustomBody(String CustomBody) {
+	        this.customBody = CustomBody;
+	    }
 
-	public String getCustomEngine() {
-		return CustomEngine;
-	}
+	    public String getCustomEngine() {
+	        return customEngine;
+	    }
 
-	public void setCustomEngine(String customEngine) {
-		CustomEngine = customEngine;
+	    public void setCustomEngine(String CustomEngine) {
+	        this.customEngine = CustomEngine;
+	    }
 	}
-}

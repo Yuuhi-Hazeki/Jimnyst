@@ -28,9 +28,9 @@ public class main extends HttpServlet {
 			throws ServletException, IOException {
 
 		String form_title = request.getParameter("title");
-		String form_sus = request.getParameter("Custom_Sus");
-		String form_body = request.getParameter("Custom_Body");
-		String form_engine = request.getParameter("Custom_Engine");
+		String form_sus = request.getParameter("custom_sus");
+		String form_body = request.getParameter("custom_body");
+		String form_engine = request.getParameter("custom_engine");
 		Part filePart = request.getPart("custom_img");
 		
 		if (filePart != null) {

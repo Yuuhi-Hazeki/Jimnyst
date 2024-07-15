@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h1>Jimnyst</h1>
+	<hr>
 	車両画像選択
 	<br>
 	<form action="main" method="post" enctype="multipart/form-data">
