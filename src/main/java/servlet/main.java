@@ -34,17 +34,11 @@ public class main extends HttpServlet {
 		Part filePart = request.getPart("custom_img");
 		
 		if (filePart != null) {
-            String fileName = filePart.getSubmittedFileName();
-            String path = getServletContext().getRealPath("/WEB-INF/uploadImg");//保存場所を指定
+            String fileName = filePart.getSubmittedFileName();//画像ファイル名取得
+            String path = getServletContext().getRealPath("/uploadImg");//保存場所を指定
+            filePart.write(path);//画像を保存
             String FilePath = path + File.separator + fileName;
-            File file = new File(FilePath);
-
-            if (file.exists()) {
-                file.delete(); 
-            }
-
-            filePart.write(file.getPath());//画像を保存
-    		
+           
             System.out.println("imgUploadSuccess!");
            
             CustomDataDAO.create(form_title, form_sus, form_body, form_engine, FilePath); //CustomDataDAO.createメソッドへ

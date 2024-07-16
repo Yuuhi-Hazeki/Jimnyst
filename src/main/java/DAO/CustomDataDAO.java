@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,12 +17,12 @@ import model.CustomData;
 
 public class CustomDataDAO extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	final static String JDBC_URL = "jdbc:h2:tcp://localhost/~/Jimnyst";
+	final static String DB_USER = "sa";
+	final static String DB_PASS = "";
 
 	public static void create(String form_title, String form_sus, String form_body, String form_engine,
-			 String FilePath) {
-		final String JDBC_URL = "jdbc:h2:tcp://localhost/~/Jimnyst";
-		final String DB_USER = "sa";
-		final String DB_PASS = "";
+			String FilePath) {
 
 		try {
 			Class.forName("org.h2.Driver");
@@ -44,7 +43,7 @@ public class CustomDataDAO extends HttpServlet {
 			stmt.setString(5, FilePath);
 			stmt.executeUpdate();
 
-			System.out.println("Data inserted successfully!");
+			System.out.println("Data inserted success!");
 			return;
 
 		} catch (SQLException e) {
@@ -56,10 +55,6 @@ public class CustomDataDAO extends HttpServlet {
 			throws ServletException, IOException {
 
 		List<CustomData> ctdList = new ArrayList<>();
-		//DB接続処理
-		final String JDBC_URL = "jdbc:h2:tcp://localhost/~/Jimnyst";
-		final String DB_USER = "sa";
-		final String DB_PASS = "";
 
 		//JDBCドライバを読み込む
 		try {
@@ -69,7 +64,7 @@ public class CustomDataDAO extends HttpServlet {
 		} //データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//SERECT文を準備
-			String sql = "SELECT TITLE, IMGPASS, "
+			String sql = "SELECT ID, TITLE, IMGPASS, "
 					+ "CUSTOMSUS, CUSTOMBODY, CUSTOMENGINE, FROM CUSTOMDATA";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//SELECT文を実行し、結果を取得
@@ -77,21 +72,38 @@ public class CustomDataDAO extends HttpServlet {
 
 			while (rs.next()) {//結果表の取り出し対象レコードを1つ進める
 				CustomData customdata = new CustomData();
+				customdata.setId(rs.getString("ID"));
 				customdata.setTitle(rs.getString("TITLE"));
 				customdata.setImgPass(rs.getString("IMGPASS"));
 				customdata.setCustomSus(rs.getString("CUSTOMSUS"));
 				customdata.setCustomBody(rs.getString("CUSTOMBODY"));
 				customdata.setCustomEngine(rs.getString("CUSTOMENGINE"));
 				ctdList.add(customdata);
+				request.setAttribute("dataList", ctdList);
+
 			}
-			request.setAttribute("dataList", ctdList);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/customList.jsp");
-			dispatcher.forward(request, response);
-		
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+	}
+
+	public static void delete(String form_id) {
+		try {
+			Class.forName("org.h2.Driver");
+
+		} catch (ClassNotFoundException e) {
+			throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+		}
+		try (Connection con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+			String sql = "DELETE FROM CUSTOMDATA WHERE id = ?";
+			PreparedStatement Stmt = con.prepareStatement(sql);
+			Stmt.setString(1, form_id);
+			Stmt.executeUpdate();
+			System.out.println("table delete succuss");
 			return;
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 

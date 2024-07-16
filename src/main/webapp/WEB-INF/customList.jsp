@@ -30,7 +30,12 @@
     <div><c:out value="${data.customBody}" /></div>
     <div>---Engine System---</div>
     <div><c:out value="${data.customEngine}" /></div>
-</c:forEach>
+    <br>
+    <form action="CustomListController" method="post"> 
+    	<input type="hidden" name="recordId" value="${data.id}">
+    	<input type="submit" value="カスタム車両の削除">
+   	</form>
+	</c:forEach>
 <a href="main">TOPへ</a>
 </body>
 </html>
