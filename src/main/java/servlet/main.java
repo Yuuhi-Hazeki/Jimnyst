@@ -31,17 +31,21 @@ public class main extends HttpServlet {
 		String form_sus = request.getParameter("custom_sus");
 		String form_body = request.getParameter("custom_body");
 		String form_engine = request.getParameter("custom_engine");
-		Part filePart = request.getPart("custom_img");
+		Part part = request.getPart("custom_img");
 		
-		if (filePart != null) {
-            String fileName = filePart.getSubmittedFileName();//画像ファイル名取得
-            String path = getServletContext().getRealPath("/uploadImg");//保存場所を指定
-            filePart.write(path);//画像を保存
-            String FilePath = path + File.separator + fileName;
+		if (part != null) {
+			String filename= part.getSubmittedFileName();
+			//アップロードするフォルダ
+			String path=getServletContext().getRealPath("/upload");
+			//実際にファイルが保存されるパス確認
+			System.out.println(path);
+			part.write(path+File.separator+filename);
+			
+			String savePath = "http://localhost:8080/Jimnyst/upload/" + filename;
            
             System.out.println("imgUploadSuccess!");
            
-            CustomDataDAO.create(form_title, form_sus, form_body, form_engine, FilePath); //CustomDataDAO.createメソッドへ
+            CustomDataDAO.create(form_title, form_sus, form_body, form_engine, savePath); //CustomDataDAO.createメソッドへ
 
         } else {
             System.out.println("imgUploadError");

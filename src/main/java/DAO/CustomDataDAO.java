@@ -22,7 +22,7 @@ public class CustomDataDAO extends HttpServlet {
 	final static String DB_PASS = "";
 
 	public static void create(String form_title, String form_sus, String form_body, String form_engine,
-			String FilePath) {
+			String savePath) {
 
 		try {
 			Class.forName("org.h2.Driver");
@@ -40,7 +40,7 @@ public class CustomDataDAO extends HttpServlet {
 			stmt.setString(2, form_sus);
 			stmt.setString(3, form_body);
 			stmt.setString(4, form_engine);
-			stmt.setString(5, FilePath);
+			stmt.setString(5, savePath);
 			stmt.executeUpdate();
 
 			System.out.println("Data inserted success!");

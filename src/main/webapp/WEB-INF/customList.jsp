@@ -15,7 +15,7 @@
    		<hr>
         <c:choose>
             <c:when test="${not empty data.imgPass}">
-                <img src="${data.imgPass}" alt="customImage">
+                <img src="${data.imgPass}" alt="customImage" width="300" height="300">
             </c:when>
             <c:otherwise>
                 Not Image forund...
