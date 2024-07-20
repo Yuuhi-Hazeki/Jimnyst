@@ -9,13 +9,14 @@
 <title>Jimnyst</title>
 </head>
 <body>
-<h1>カスタム一覧</h1>
+<h1>Jimnyst</h1>
+	<h2>Custom List</h2>
 		<c:forEach var="data" items="${dataList}">
     <div>
    		<hr>
         <c:choose>
             <c:when test="${not empty data.imgPass}">
-                <img src="${data.imgPass}" alt="customImage" width="300" height="300">
+                <img src="${data.imgPass}" alt="customImage" width="30%" height="30%">
             </c:when>
             <c:otherwise>
                 Not Image forund...
@@ -32,10 +33,19 @@
     <div><c:out value="${data.customEngine}" /></div>
     <br>
     <form action="CustomListController" method="post"> 
-    	<input type="hidden" name="recordId" value="${data.id}">
-    	<input type="submit" value="カスタム車両の削除">
+    	<input type="hidden" name="edtId" value="${data.id}">
+    	<input id="edt_btn" type="submit" value="カスタム車両の編集">
+   	</form>
+    <br>
+    <form action="CustomListController" method="post" style="text-align:right"> 
+    	<input type="hidden" name="delId" value="${data.id}" style="text-align:right">
+    	<input id="del_btn" type="submit" value="カスタム車両の削除" style="text-align:right">
    	</form>
 	</c:forEach>
 <a href="main">TOPへ</a>
+
+<!--edit_area-->
+<script>del_btn.onclick=function(){return confirm("カスタム車両を削除してもよろしいですか？")};</script>
+<!--/edit_area-->
 </body>
 </html>
