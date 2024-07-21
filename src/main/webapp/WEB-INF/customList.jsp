@@ -32,11 +32,11 @@
     <div>---Engine System---</div>
     <div><c:out value="${data.customEngine}" /></div>
     <br>
-    <form action="CustomListController" method="post"> 
-    	<input type="hidden" name="edtId" value="${data.id}">
-    	<input id="edt_btn" type="submit" value="カスタム車両の編集">
+    <form action="CustomListEditController" method="Get" style="text-align:right"> 
+    	<input type="hidden" name="edtId" value="${data.id}" style="text-align:right">
+    	<input id="edt_btn" type="submit" value="カスタム車両の編集" style="text-align:right">
    	</form>
-    <br>
+   	<br>
     <form action="CustomListController" method="post" style="text-align:right"> 
     	<input type="hidden" name="delId" value="${data.id}" style="text-align:right">
     	<input id="del_btn" type="submit" value="カスタム車両の削除" style="text-align:right">
