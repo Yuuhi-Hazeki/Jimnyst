@@ -12,16 +12,16 @@
 	<h1>Jimnyst</h1>
 	<h2>Edit Page</h2>
 	<hr>
-	<form action="CustomListEditController" method="post">
-	<input type="hidden" name="id" id="${id}">
+	<form action="CustomListEditController" method="post">                                              
+	<input type="hidden" name="dataid" id="dataid" value="${dataList.id}">
 		カスタム名/型 <br>
-		<textarea rows="2" cols="40" name="title"><c:out value="${title}"/></textarea>
+		<textarea rows="2" cols="40" name="title">${dataList.title}</textarea>
 		<p>足回り、サスペンション系</p>
-		<textarea rows="10" cols="80" name="custom_sus"><c:out value="${customSus}"/></textarea>
+		<textarea rows="10" cols="80" name="custom_sus">${dataList.customSus}</textarea>
 		<p>外装系</p>
-		<textarea rows="10" cols="80" name="custom_body"><c:out value="${customBody}"/></textarea>
+		<textarea rows="10" cols="80" name="custom_body">${dataList.customBody}</textarea>
 		<p>エンジン、スープアップ系</p>
-		<textarea rows="10" cols="80" name="custom_engine"><c:out value="${customEngine}"/></textarea>
+		<textarea rows="10" cols="80" name="custom_engine">${dataList.customEngine}</textarea>
 		<br> <input type="submit" value="内容の変更">
 	</form>
 	<br>

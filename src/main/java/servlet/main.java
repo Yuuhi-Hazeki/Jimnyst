@@ -42,6 +42,8 @@ public class main extends HttpServlet {
 			part.write(path+File.separator+filename);
 			
 			String savePath = "http://localhost:8080/Jimnyst/upload/" + filename;
+			
+			System.out.println(savePath);
            
             System.out.println("imgUploadSuccess!");
            

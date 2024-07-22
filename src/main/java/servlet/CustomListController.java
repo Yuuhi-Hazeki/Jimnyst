@@ -25,7 +25,7 @@ public class CustomListController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String form_id = request.getParameter("delId");
+		int form_id = Integer.parseInt(request.getParameter("delId"));
 
 			CustomDataDAO.delete(form_id);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/deleteResult.jsp");

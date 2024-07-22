@@ -1,7 +1,7 @@
 package model;
 
 public class CustomData {
-	private String id;
+	private int id;
 	  private String imgPass;
 	    private String title;
 	    private String customSus;
@@ -49,11 +49,11 @@ public class CustomData {
 	        this.customEngine = CustomEngine;
 	    }
 
-		public String getId() {
+		public int getId() {
 			return id;
 		}
 
-		public void setId(String id) {
+		public void setId(int id) {
 			this.id = id;
 		}
 

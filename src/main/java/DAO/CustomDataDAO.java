@@ -72,7 +72,7 @@ public class CustomDataDAO extends HttpServlet {
 
 			while (rs.next()) {//結果表の取り出し対象レコードを1つ進める
 				CustomData customdata = new CustomData();
-				customdata.setId(rs.getString("ID"));
+				customdata.setId(rs.getInt("ID"));
 				customdata.setTitle(rs.getString("TITLE"));
 				customdata.setImgPass(rs.getString("IMGPASS"));
 				customdata.setCustomSus(rs.getString("CUSTOMSUS"));
@@ -88,7 +88,7 @@ public class CustomDataDAO extends HttpServlet {
 		}
 	}
 
-	public static void delete(String form_id) {
+	public static void delete(int form_id) {
 		try {
 			Class.forName("org.h2.Driver");
 
@@ -98,7 +98,7 @@ public class CustomDataDAO extends HttpServlet {
 		try (Connection con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			String sql = "DELETE FROM CUSTOMDATA WHERE id = ?";
 			PreparedStatement Stmt = con.prepareStatement(sql);
-			Stmt.setString(1, form_id);
+			Stmt.setInt(1, form_id);
 			Stmt.executeUpdate();
 			System.out.println("table delete succuss");
 
@@ -107,7 +107,7 @@ public class CustomDataDAO extends HttpServlet {
 		}
 	}
 
-	public static void edit(String form_id, String form_title, String form_sus, String form_body, String form_engine) {
+	public static void update(int form_id, String form_title, String form_sus, String form_body, String form_engine) {
 		try {
 			Class.forName("org.h2.Driver");
 		} catch (ClassNotFoundException e) {
@@ -124,7 +124,7 @@ public class CustomDataDAO extends HttpServlet {
 			stmt.setString(2, form_sus);
 			stmt.setString(3, form_body);
 			stmt.setString(4, form_engine);
-			stmt.setString(5, form_id);
+			stmt.setInt(5, form_id);
 			
 			stmt.executeUpdate();
 
@@ -136,17 +136,17 @@ public class CustomDataDAO extends HttpServlet {
 		}
 	}
 
-	public static void findData(HttpServletRequest request, HttpServletResponse response, String editformid) {
+	public static void findData(HttpServletRequest request, HttpServletResponse response, int editformid) {
 		try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			String sql = "SELECT * FROM CUSTOMDATA WHERE ID = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.setString(1, editformid);
+			statement.setInt(1, editformid);
 			ResultSet rs = statement.executeQuery();
 
 			List<CustomData> ctdList = new ArrayList<>();
 			while (rs.next()) {
 				CustomData customdata = new CustomData();
-				customdata.setId(rs.getString("ID"));
+				customdata.setId(rs.getInt("ID"));
 				customdata.setTitle(rs.getString("TITLE"));
 				customdata.setImgPass(rs.getString("IMGPASS"));
 				customdata.setCustomSus(rs.getString("CUSTOMSUS"));
@@ -156,6 +156,7 @@ public class CustomDataDAO extends HttpServlet {
 
 				request.setAttribute("dataList", ctdList);
 			}
+			return;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

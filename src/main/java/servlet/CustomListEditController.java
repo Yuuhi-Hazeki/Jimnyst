@@ -14,7 +14,7 @@ public class CustomListEditController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String editformid = request.getParameter("edtId");
+		int editformid = Integer.parseInt(request.getParameter("edtId"));
 		CustomDataDAO.findData(request, response, editformid);
 	
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CustomEdit.jsp");
@@ -23,13 +23,13 @@ public class CustomListEditController extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String form_id = request.getParameter("id");
+		int form_id = Integer.parseInt(request.getParameter("id"));
 		String form_title = request.getParameter("title");
 		String form_sus = request.getParameter("custom_sus");
 		String form_body = request.getParameter("custom_body");
 		String form_engine = request.getParameter("custom_engine");
 		
-		CustomDataDAO.edit(form_id, form_title, form_sus, form_body, form_engine);
+		CustomDataDAO.update(form_id, form_title, form_sus, form_body, form_engine);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditResult.jsp");
 		dispatcher.forward(request, response);
