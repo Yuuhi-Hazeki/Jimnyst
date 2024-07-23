@@ -4,13 +4,6 @@
 
 <h3>機能</h3>
 <p>スズキジムニー(自動車)の車両カスタム内容を保存、閲覧それに対してコメントできるアプリ</p>
-
-
-
-<h3>TOP画面</h3>
-![Jimnyst TOP](https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20TOP.png)
-
-
 <ul>
   <li>車両画像、カスタム内容の登録機能</li>
   <li>一覧表示機能</li>
@@ -18,6 +11,19 @@
   <li>車両毎の編集機能</li>
   <li>コメント機能(未実装）</li>
 </ul>  
+
+<h3>TOP画面</h3>
+<img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20TOP.png">
+
+<h3>登録画面</h3>
+<img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst-New%20.png">
+
+<h3>リスト表示</h3>
+<img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20List.png">
+<img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20List2.png">
+
+<h3>編集画面</h3>
+<img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20Edit.png">
 
 
 <h3>使用技術/環境</h3>
@@ -27,7 +33,6 @@
   <li>サーブレット/JSP</li>
   <li>H2 Database</li>
 </ul>
-
 
 <h3>ポートフォリオを通して</h3>
 未経験からの挑戦でありエラーが起きては考えて解決しの繰り返しで最初はわからなかったことがわかるところも出てきて解決できた時のうれしさ、達成感を感じることができました。
