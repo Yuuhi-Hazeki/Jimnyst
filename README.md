@@ -8,8 +8,7 @@
 
 
 <h3>TOP画面</h3>
-![Jimnyst - Google Chrome 2024_07_23 13_38_25 (1)](https://github.com/user-attachments/assets/392eecc6-4c97-4ea7-9e49-63eefd1e642c)
-<h3>登録画面</h3>
+![Jimnyst TOP](https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20TOP.png)
 
 
 <ul>
@@ -39,6 +38,5 @@
   <li>コメント機能の実装</li>
   <li>データベースのMySQL化</li>
   <li>誰でも削除できる箇所の改善</li>
-  <li>フロント側を最低限作る</li>
   <li>実際のサーバー環境（AWS等）へのデプロイ</li>
 </ul>
