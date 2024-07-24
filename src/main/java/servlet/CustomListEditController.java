@@ -31,7 +31,7 @@ public class CustomListEditController extends HttpServlet {
 		
 		CustomDataDAO.update(form_id, form_title, form_sus, form_body, form_engine);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditResult.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/editResult.jsp");
 		dispatcher.forward(request, response);
 	
 	}

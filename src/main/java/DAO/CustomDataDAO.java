@@ -142,8 +142,7 @@ public class CustomDataDAO extends HttpServlet {
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setInt(1, editformid);
 			ResultSet rs = statement.executeQuery();
-
-			List<CustomData> ctdList = new ArrayList<>();
+			
 			while (rs.next()) {
 				CustomData customdata = new CustomData();
 				customdata.setId(rs.getInt("ID"));
@@ -152,9 +151,9 @@ public class CustomDataDAO extends HttpServlet {
 				customdata.setCustomSus(rs.getString("CUSTOMSUS"));
 				customdata.setCustomBody(rs.getString("CUSTOMBODY"));
 				customdata.setCustomEngine(rs.getString("CUSTOMENGINE"));
-				ctdList.add(customdata);
+				
 
-				request.setAttribute("dataList", ctdList);
+				request.setAttribute("data", customdata);
 			}
 			return;
 		} catch (SQLException e) {

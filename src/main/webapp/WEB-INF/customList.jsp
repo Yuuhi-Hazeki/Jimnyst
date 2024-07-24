@@ -41,6 +41,13 @@
     	<input type="hidden" name="delId" value="${data.id}" style="text-align:right">
     	<input id="del_btn" type="submit" value="カスタム車両の削除" style="text-align:right">
    	</form>
+   	
+   	
+   	<form action="ListComentContoroller" method="get">
+   	<input type="hidden" name="comentid" value="${data.id}">
+   	<textarea rows="10" cols="80" name="coment" ></textarea>
+   	<input id="coment_btn" type="submit" value="コメント">
+   	</form>
 	</c:forEach>
 <a href="main">TOPへ</a>
 
