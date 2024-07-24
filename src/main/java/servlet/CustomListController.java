@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
+import DAO.ComentListDAO;
 import DAO.CustomDataDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -17,6 +18,8 @@ public class CustomListController extends HttpServlet {
 			throws ServletException, IOException {
 
 		CustomDataDAO.findAll(request, response);
+		
+		ComentListDAO.findAll(request, response);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/customList.jsp");
 		dispatcher.forward(request, response);
