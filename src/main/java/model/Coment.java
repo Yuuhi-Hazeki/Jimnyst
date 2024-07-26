@@ -3,6 +3,7 @@ package model;
 public class Coment {
 	private int id;
 	private String coment;
+	
 	public int getId() {
 		return id;
 	}

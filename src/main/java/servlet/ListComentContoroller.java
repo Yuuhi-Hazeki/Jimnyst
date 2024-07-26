@@ -21,8 +21,8 @@ public class ListComentContoroller extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		int newComentId = Integer.parseInt(request.getParameter("comentId"));
-		String newComent = request.getParameter("coment_btn");
+		int newComentId = Integer.parseInt(request.getParameter("comentid"));
+		String newComent = request.getParameter("coment");
 
 		ComentListDAO.create(newComentId, newComent, request, response);
 

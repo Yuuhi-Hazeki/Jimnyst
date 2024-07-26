@@ -19,7 +19,7 @@
                 <img src="${data.imgPass}" alt="customImage" width="30%" height="30%">
             </c:when>
             <c:otherwise>
-                Not Image forund...
+                No Image
             </c:otherwise>
         </c:choose>
     </div>
@@ -48,14 +48,14 @@
                <c:out value="${cmtdata.coment}"/>
             </c:when>
             <c:otherwise>
-                Not Coment forund...
+                コメントはありません。
             </c:otherwise>
         </c:choose>
    	</c:forEach>
    	<form action="ListComentContoroller" method="post">
    	<input type="hidden" name="comentid" value="${data.id}">
    	<textarea rows="2%" cols="50%" name="coment"></textarea>
-   	<input id="coment_btn" type="submit" value="コメント">
+   	<input type="submit" value="コメント">
    	</form>
 	</c:forEach>
 <a href="main">TOPへ</a>
