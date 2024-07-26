@@ -42,10 +42,19 @@
     	<input id="del_btn" type="submit" value="カスタム車両の削除" style="text-align:right">
    	</form>
    	
-   	
+   	<c:forEach var="cmtdata" items="${comtList}">
+   	 <c:choose>
+            <c:when test="${not empty cmtdata.coment}">
+               <c:out value="${cmtdata.coment}"/>
+            </c:when>
+            <c:otherwise>
+                Not Coment forund...
+            </c:otherwise>
+        </c:choose>
+   	</c:forEach>
    	<form action="ListComentContoroller" method="post">
    	<input type="hidden" name="comentid" value="${data.id}">
-   	<textarea rows="10" cols="80" name="coment" ></textarea>
+   	<textarea rows="2%" cols="50%" name="coment"></textarea>
    	<input id="coment_btn" type="submit" value="コメント">
    	</form>
 	</c:forEach>

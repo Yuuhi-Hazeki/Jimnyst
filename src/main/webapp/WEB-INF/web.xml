@@ -6,10 +6,6 @@
     <servlet-name>ListComentContoroller</servlet-name>
     <servlet-class>servlet.ListComentContoroller</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>ListComentContoroller</servlet-name>
-    <url-pattern>/ListComentContoroller</url-pattern>
-  </servlet-mapping>
   <display-name>Jimnyst</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -35,20 +31,4 @@
     <servlet-name>NewCustomController</servlet-name>
     <servlet-class>servlet.NewCustomController</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>main</servlet-name>
-    <url-pattern>/main</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>CustomListController</servlet-name>
-    <url-pattern>/CustomListController</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>CustomListEditController</servlet-name>
-    <url-pattern>/CustomListEditController</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>NewCustomController</servlet-name>
-    <url-pattern>/NewCustomController</url-pattern>
-  </servlet-mapping>
 </web-app>

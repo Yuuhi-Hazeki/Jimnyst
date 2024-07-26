@@ -60,7 +60,7 @@ public class ComentListDAO extends HttpServlet {
 		} //データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//SERECT文を準備
-			String sql = "SELECT ID, COMENT FROM COMNET";
+			String sql = "SELECT ID, COMENT FROM COMENT";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//SELECT文を実行し、結果を取得
 			ResultSet rs = pStmt.executeQuery();//ResultSetインスタンスにSELECT文の結果を格納
