@@ -41,15 +41,14 @@
     	<input type="hidden" name="delId" value="${data.id}" style="text-align:right">
     	<input id="del_btn" type="submit" value="カスタム車両の削除" style="text-align:right">
    	</form>
-   	
+   	---Comment---
+   	<br>
    	<c:forEach var="cmtdata" items="${comtList}">
    	 <c:choose>
-            <c:when test="${not empty cmtdata.coment}">
-               <c:out value="${cmtdata.coment}"/>
+            <c:when test="${cmtdata.id == data.id}">
+               <div><c:out value="${cmtdata.coment}"/></div>
+               <div><c:out value="${cmtdata.datetime}"/></div>
             </c:when>
-            <c:otherwise>
-                コメントはありません。
-            </c:otherwise>
         </c:choose>
    	</c:forEach>
    	<form action="ListComentContoroller" method="post">

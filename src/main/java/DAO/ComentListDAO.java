@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,10 +35,11 @@ public class ComentListDAO extends HttpServlet {
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 
 			//パラメーターを取得して、インスタンスに代入
-			String sql = "INSERT INTO COMENT (ID, COMENT) VALUES (?, ?)";
+			String sql = "INSERT INTO COMENT (ID, COMENT, DATETIME) VALUES (?, ?, ?)";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, newComentId);
 			stmt.setString(2, newComent);
+			stmt.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
 		
 			stmt.executeUpdate();
 
@@ -60,7 +62,7 @@ public class ComentListDAO extends HttpServlet {
 		} //データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//SERECT文を準備
-			String sql = "SELECT ID, COMENT FROM COMENT";
+			String sql = "SELECT ID, COMENT, DATETIME FROM COMENT";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//SELECT文を実行し、結果を取得
 			ResultSet rs = pStmt.executeQuery();//ResultSetインスタンスにSELECT文の結果を格納
@@ -69,6 +71,7 @@ public class ComentListDAO extends HttpServlet {
 				Coment coment = new Coment();
 				coment.setId(rs.getInt("ID"));
 				coment.setComent(rs.getString("COMENT"));
+				coment.setDatetime(rs.getString("DATETIME"));
 				
 				comtList.add(coment);
 				HttpSession session = request.getSession();
