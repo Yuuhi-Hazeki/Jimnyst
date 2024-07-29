@@ -46,6 +46,7 @@
    	<c:forEach var="cmtdata" items="${comtList}">
    	 <c:choose>
             <c:when test="${cmtdata.id == data.id}">
+            <hr>
                <div><c:out value="${cmtdata.coment}"/></div>
                <div><c:out value="${cmtdata.datetime}"/></div>
             </c:when>
