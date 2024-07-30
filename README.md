@@ -9,7 +9,7 @@
   <li>一覧表示機能</li>
   <li>車両毎の削除機能</li>
   <li>車両毎の編集機能</li>
-  <li>コメント機能(未実装）</li>
+  <li>コメント機能</li>
 </ul>  
 
 <h3>TOP画面</h3>
@@ -18,9 +18,9 @@
 <h3>登録画面</h3>
 <img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst-New%20.png">
 
-<h3>リスト表示</h3>
+<h3>リスト表示/コメント表示</h3>
 <img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20List.png">
-<img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20List2.png">
+<img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20Comment.png">
 
 <h3>編集画面</h3>
 <img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20Edit.png">
@@ -43,8 +43,8 @@
 
 <h3>これからやっていきたいこと/課題</h3>
 <ul>
-  <li>コメント機能の実装</li>
+  <li>コメント機能の改善（コメントに名前を付属させる）</li>
   <li>データベースのMySQL化</li>
   <li>誰でも削除できる箇所の改善</li>
-  <li>実際のサーバー環境（AWS等）へのデプロイ</li>
+  <li>実際のサーバー環境（Heroku,AWS等）へのデプロイ</li>
 </ul>
