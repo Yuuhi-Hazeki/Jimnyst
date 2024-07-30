@@ -47,15 +47,20 @@
    	 <c:choose>
             <c:when test="${cmtdata.id == data.id}">
             <hr>
-               <div><c:out value="${cmtdata.coment}"/></div>
-               <div><c:out value="${cmtdata.datetime}"/></div>
+              <div><c:out value="${cmtdata.name}"/>/<c:out value="${cmtdata.datetime}"/></div>
+              <div><c:out value="${cmtdata.coment}"/></div>
+              
             </c:when>
         </c:choose>
    	</c:forEach>
+   	<hr>
    	<form action="ListComentContoroller" method="post">
    	<input type="hidden" name="comentid" value="${data.id}">
+   	name<br>
+   	<input type="text" name="comentname"><br>
+   	comment<br>
    	<textarea rows="2%" cols="50%" name="coment"></textarea>
-   	<input type="submit" value="コメント">
+   	<input type="submit" value="送信">
    	</form>
 	</c:forEach>
 <a href="main">TOPへ</a>

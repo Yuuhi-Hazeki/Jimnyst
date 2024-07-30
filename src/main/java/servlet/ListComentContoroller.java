@@ -22,9 +22,10 @@ public class ListComentContoroller extends HttpServlet {
 			throws ServletException, IOException {
 
 		int newComentId = Integer.parseInt(request.getParameter("comentid"));
+		String newname = request.getParameter("comentname");
 		String newComent = request.getParameter("coment");
 
-		ComentListDAO.create(newComentId, newComent, request, response);
+		ComentListDAO.create(newComentId, newComent, newname, request, response);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/customList.jsp");
 		dispatcher.forward(request, response);

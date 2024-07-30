@@ -23,7 +23,7 @@ public class ComentListDAO extends HttpServlet {
 	final static String DB_USER = "sa";
 	final static String DB_PASS = "";
 	
-	public static void create(int newComentId, String newComent, HttpServletRequest request,
+	public static void create(int newComentId, String newComent, String newname, HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
 		try {
@@ -35,11 +35,12 @@ public class ComentListDAO extends HttpServlet {
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 
 			//パラメーターを取得して、インスタンスに代入
-			String sql = "INSERT INTO COMENT (ID, COMENT, DATETIME) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO COMENT (ID, NAME, COMENT, DATETIME) VALUES (?, ?, ?, ?)";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, newComentId);
-			stmt.setString(2, newComent);
-			stmt.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+			stmt.setString(2, newname);
+			stmt.setString(3, newComent);
+			stmt.setTimestamp(4, new Timestamp(System.currentTimeMillis()));
 		
 			stmt.executeUpdate();
 
@@ -62,7 +63,7 @@ public class ComentListDAO extends HttpServlet {
 		} //データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//SERECT文を準備
-			String sql = "SELECT ID, COMENT, DATETIME FROM COMENT";
+			String sql = "SELECT ID, NAME, COMENT, DATETIME FROM COMENT";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//SELECT文を実行し、結果を取得
 			ResultSet rs = pStmt.executeQuery();//ResultSetインスタンスにSELECT文の結果を格納
@@ -70,6 +71,7 @@ public class ComentListDAO extends HttpServlet {
 			while (rs.next()) {//結果表の取り出し対象レコードを1つ進める
 				Coment coment = new Coment();
 				coment.setId(rs.getInt("ID"));
+				coment.setName(rs.getString("NAME"));
 				coment.setComent(rs.getString("COMENT"));
 				coment.setDatetime(rs.getString("DATETIME"));
 				
