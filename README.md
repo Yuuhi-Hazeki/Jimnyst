@@ -18,9 +18,9 @@
 <h3>登録画面</h3>
 <img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst-New%20.png">
 
-<h3>リスト表示/コメント表示</h3>
+<h3>リスト表示/名前、コメント表示</h3>
 <img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20List.png">
-<img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20Comment.png">
+<img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20Commentname.png">
 
 <h3>編集画面</h3>
 <img src="https://github.com/Yuuhi-Hazeki/Jimnyst/blob/readme%E3%80%80imagae/Jimnyst%20-%20Edit.png">
